@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ridly.Models;
 
 namespace ridly.Data
 {
@@ -8,7 +9,7 @@ namespace ridly.Data
         {
         }
 
-        public DbSet<Category>? Categories { get; set; }
+        public DbSet<category>? Categories { get; set; }
     }
 
 }
