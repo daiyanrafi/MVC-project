@@ -14,7 +14,7 @@ namespace ridly.Controllers
         }
         public IActionResult Index()
         {
-           IEnumerable <category> objCategoryList = _db.Categories;
+            IEnumerable<category> objCategoryList = _db.Categories;
             return View(objCategoryList);
         }
 
@@ -22,6 +22,16 @@ namespace ridly.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        //Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(category obj)
+        {
+            _db.Categories.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
